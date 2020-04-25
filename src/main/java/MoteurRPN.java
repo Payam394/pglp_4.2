@@ -4,9 +4,13 @@ public class MoteurRPN extends Interpreteur{
 	
 	private Stack <String> list =new Stack<String>();
 	
-	public MoteurRPN(Stack<String> list, Interpreteur inter) {
+	public MoteurRPN(Stack<String> list) {
 		super();
 		this.list = list;
+		
+		Command rtn = new Retourner(list);
+		this.ajouter("retourner", rtn);
+		
 	}
 /*
 	public int ajouter(String nom) {
@@ -33,14 +37,22 @@ public class MoteurRPN extends Interpreteur{
 		list.push(op);
 	}
 	
+	
+	
+	
+	
 	public void retourner() {
 		while(!list.isEmpty()) {
 			System.out.println(list.pop());
 		}
 	}
 	
+	
+	
+	
+	
 	public int  appliquer(String opr) {
-		if (opr.equals("Quit") || opr.equals("Undo")){
+		if (opr.equals("quit") || opr.equals("undo")){
 			super.executer(opr);
 			return 1;
 		}
@@ -48,34 +60,41 @@ public class MoteurRPN extends Interpreteur{
 		int elem1 = Integer.parseInt(this.list.pop());
 		int elem2 = Integer.parseInt(this.list.pop());
 		
+		Integer res;
+		
 		if (opr.equals("+")) {
-			Integer res = elem1+elem2;
+			res = elem1+elem2;
 			list.push(res.toString());
+			System.out.println("The result of the operation : " + res);
 		}
 		else if (opr.equals("-")) {
-			Integer res = elem1-elem2;
+			res = elem1-elem2;
 			list.push(res.toString());
+			System.out.println("The result of the operation : " + res);
 		}
 		else if (opr.equals("*")) {
-			Integer res = elem1*elem2;
+			res = elem1*elem2;
 			list.push(res.toString());
+			System.out.println("The result of the operation : " + res);
 		}
 		else if (opr.equals("/")) {
-			Integer res;
 			try {
 				res = elem1/elem2;
 				list.push(res.toString());
-				return 1;
+				System.out.println("The result of the operation : " + res);
 			}
 			catch(ArithmeticException ae) {
 		        System.out.println("divide by zero impossible!");
 		        return 0;
 			}
 		}
+		else {
+			System.out.println("operation doesn't existe!");
+			return 0;
+		}
+		list.pop();
+		return 1;
 		
-		System.out.println("operation doesn't existe!");
-		return 0;
-	
 		
 	}
 	

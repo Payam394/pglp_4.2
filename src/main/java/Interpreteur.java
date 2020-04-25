@@ -32,8 +32,9 @@ public class Interpreteur {
 			System.out.println("il n'existe pas de commande au nom de "+nom);
 			return 0;
 		}
-		
+		//System.out.println("goodinterpreteur");
 		mapCommand.get(nom).execute();
+		
 		return 1;
 		
 	}

@@ -14,16 +14,18 @@ public class SaisieRPN {
 		
 		try {
 			Integer.parseInt(s);
-			//this.moteur.enregistrer(s);
-			this.moteur.executer("enregistrer");
+			this.moteur.enregistrer(s);
+			//this.moteur.executer("enregistrer");
 		}
 		catch(NumberFormatException e) {
-			if(s.equals("undo") || s.equals("quit")) {
+			if(s.equals("undo") || s.equals("quit") || s.equals("retourner")) {
 				this.moteur.executer(s);
 			}
-			else if (s.equals("retourner")){
-				//this.moteur.nouvelOperateur(s);
-				this.moteur.executer("retourner");
+			else if (s.equals("+") || s.equals("*") || s.equals("-") || s.equals("/")){
+				this.moteur.appliquer(s);
+			}
+			else {
+				
 			}
 		}
 	}
