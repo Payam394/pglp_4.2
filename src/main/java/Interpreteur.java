@@ -4,7 +4,27 @@ public class Interpreteur {
 	
 	private HashMap<String, Command> mapCommand = new HashMap<String, Command>();
 
+	public HashMap<String, Command> getMapCommand() {
+		return mapCommand;
+	}
+
+	public void setMapCommand(HashMap<String, Command> mapCommand) {
+		this.mapCommand = mapCommand;
+	}
+
+	public Interpreteur() {
+		this.mapCommand = new HashMap<String, Command>();
+		
+			Command c1 = new Undo();
+			this.mapCommand.put("undo", c1);
+			Command c2 = new Quit();
+			this.mapCommand.put("quit", c2);
+		
+	}
 	
+	public void ajouter(String nom, Command cmd) {
+		this.mapCommand.put(nom, cmd);
+	}
 	
 	
 	public int executer(String nom) {
