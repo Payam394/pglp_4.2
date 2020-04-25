@@ -1,15 +1,15 @@
 
-import java.util.ArrayList;
+import java.util.Stack;
 
 
 public class Undo implements Command{
 	
-	private ArrayList<String> list;
+	private Stack<String> list;
 	
 	public void execute() {
 		try
 		{
-			this.list.remove(this.list.size()-1);
+			this.list.pop();
 			System.out.println("Supprimer la dernière commande");
 		}
 		catch (NullPointerException e)
