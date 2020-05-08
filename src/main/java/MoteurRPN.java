@@ -73,7 +73,7 @@ public class MoteurRPN extends Interpreteur{
 			return 0;
 		}
 		list.pop();
-		return 1;
+		return res;
 		
 		
 	}

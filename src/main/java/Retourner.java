@@ -13,8 +13,13 @@ public class Retourner implements Command{
 
 
 	public void execute() {
-		while(!list.isEmpty()) {
-			System.out.println(list.pop());
+		try {
+			while(!list.isEmpty()) {
+				System.out.println(list.pop());
+			}
+		}
+		catch(Exception I) {
+			
 		}
 		
 	}
