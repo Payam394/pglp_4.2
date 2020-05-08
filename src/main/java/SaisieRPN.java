@@ -18,7 +18,12 @@ public class SaisieRPN {
 			//this.moteur.executer("enregistrer");
 		}
 		catch(NumberFormatException e) {
-			if(s.equals("undo") || s.equals("quit") || s.equals("retourner")) {
+			if(s.equals("undo")){
+				Undo u= new Undo(list);
+				this.moteur.executer(s);
+			}
+			
+			else if (s.equals("quit") || s.equals("retourner")) {
 				this.moteur.executer(s);
 			}
 			else if (s.equals("+") || s.equals("*") || s.equals("-") || s.equals("/")){

@@ -14,9 +14,6 @@ public class Interpreteur {
 
 	public Interpreteur() {
 		this.mapCommand = new HashMap<String, Command>();
-		
-			Command c1 = new Undo();
-			this.mapCommand.put("undo", c1);
 			Command c2 = new Quit();
 			this.mapCommand.put("quit", c2);
 		

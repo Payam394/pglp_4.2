@@ -11,33 +11,15 @@ public class MoteurRPN extends Interpreteur{
 		Command rtn = new Retourner(list);
 		this.ajouter("retourner", rtn);
 		
+		Command c1 = new Undo(list);
+		this.ajouter("undo", c1);
+		
 	}
-/*
-	public int ajouter(String nom) {
-		if (nom.equals("enregistrer")){
-			CommandMoteur c = new Enregistrer(this.list);
-			this.ajouter(nom, c);
-			return 1;
-		}
-		else if (nom.equals("appliquer")){
-			CommandMoteur c = new Appliquer(this.list);
-			this.ajouter(nom, c);
-			return 1;
-		}
-		else if (nom.equals("Retourner")){
-			Command c = new Retourner(this.list);
-			this.ajouter(nom, c);
-			return 1;
-		}
-		return 0;
-	}
-*/
+
 	
 	public void enregistrer(String op) {
 		list.push(op);
 	}
-	
-	
 	
 	
 	
@@ -48,15 +30,13 @@ public class MoteurRPN extends Interpreteur{
 	}
 	
 	
-	
-	
-	
 	public int  appliquer(String opr) {
+		/*
 		if (opr.equals("quit") || opr.equals("undo")){
 			super.executer(opr);
 			return 1;
 		}
-		
+		*/
 		int elem1 = Integer.parseInt(this.list.pop());
 		int elem2 = Integer.parseInt(this.list.pop());
 		
